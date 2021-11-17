@@ -51,7 +51,7 @@ def getFlow():
 
     preguntaInterest = Question(
         index="interest",
-        text="Antes que nada dime que te parece la vacante a la que te postulaste:\n\nEl auxiliar de almacén colabora en el almacenaje de productos perecederos, el armado de pedidos, orden y limpieza del almacén, entre otras cosas.\nSe trabaja 6 días por semana, con 1 de descanso, en tres turnos rolados.\nEl puesto cuenta con un atractivo sueldo base y prestaciones superiores a las de la ley.",
+        text="Antes que nada dime que te parece la vacante a la que te postulaste:\n\nEl auxiliar de almacén colabora en el almacenaje de productos perecederos, el armado de pedidos, orden y limpieza del almacén, entre otras cosas.\nSe trabaja 6 días por semana, con 1 de descanso, en tres turnos rolados.\nEl puesto cuenta con un sueldo mensual que ronda entre $5,000 y $7,000 pesos y prestaciones superiores a las de la ley",
         options = ["Me interesa","+ info","No me interesa"],
         ).get_dict()
 
@@ -62,16 +62,23 @@ def getFlow():
         exactMatch=False,       
     ).get_dict()
 
-    preguntaNoInterest = Question(
-        index="no_interest",
-        text = "Entiendo. No hay problema! Si en algún momento cambias de opinión me puedes esrcibir nuevamente. Adiós!",
-        immediateNext = True,
-    ).get_dict()
+    preguntaAgree = Question(
+        index="i_agree",
+        text="Todas tus respuestas serán recolectadas y entregadas al equipo de Recursos Humanos de BigFoodCompany. Estás de acuerdo?",
+        options = ["Estoy de acuerdo","No estoy de acuerdo"],
+        exactMatch=True,
+    )
 
     preguntaInterestBye = Question(
     	index ='interest_bye',
     	text = 'Genial! 💪 Te tendré en cuenta para el puesto. Que tengas un gran día',
     	immediateNext = True,
+    ).get_dict()
+
+        preguntaNoInterest = Question(
+        index="no_interest",
+        text = "Entiendo. No hay problema! Si en algún momento cambias de opinión me puedes esrcibir nuevamente. Adiós!",
+        immediateNext = True,
     ).get_dict()
 
 
@@ -103,8 +110,9 @@ def getFlow():
     flow[preguntaSosUnRobot["question"]["index"]] = preguntaSosUnRobot
     flow[preguntaInterest["question"]["index"]] = preguntaInterest
     flow[preguntaMoreInfo["question"]["index"]] = preguntaMoreInfo
-    flow[preguntaNoInterest["question"]["index"]] = preguntaNoInterest
+    flow[preguntaAgree["question"]["index"]] = preguntaAgree
     flow[preguntaInterestBye["question"]["index"]] = preguntaInterestBye
+    flow[preguntaNoInterest["question"]["index"]] = preguntaNoInterest
 
     return flow
 
