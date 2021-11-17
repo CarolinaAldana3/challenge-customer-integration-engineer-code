@@ -48,7 +48,6 @@ def getFlow():
         options=["Ok, empecemos!", "No me interesa"],       
       ).get_dict()
 
-
     preguntaInterest = Question(
         index="interest",
         text="Antes que nada dime que te parece la vacante a la que te postulaste:\n\nEl auxiliar de almacén colabora en el almacenaje de productos perecederos, el armado de pedidos, orden y limpieza del almacén, entre otras cosas.\nSe trabaja 6 días por semana, con 1 de descanso, en tres turnos rolados.\nEl puesto cuenta con un sueldo mensual que ronda entre $5,000 y $7,000 pesos y prestaciones superiores a las de la ley",
