@@ -1,1 +1,1 @@
-# Resolve exercise explained in pdf file
+# Solved exercise 
